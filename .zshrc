@@ -1,6 +1,6 @@
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
-zstyle :compinstall filename '/home/bimozx/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 autoload -Uz compinit
 autoload -U colors && colors
@@ -152,7 +152,7 @@ eval "$(rbenv init -)"
 [ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
 
 # GVM stuff
-[[ -s "/home/bimozx/.gvm/scripts/gvm" ]] && source "/home/bimozx/.gvm/scripts/gvm"
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
 
 # ASDF initialization
 . $HOME/.asdf/asdf.sh
