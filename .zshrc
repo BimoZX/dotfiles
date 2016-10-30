@@ -165,17 +165,16 @@ PROMPT="
 
 setopt promptsubst
 
-# Programming environment manager
+################################################
+# MISC.
+################################################
 
-# rbenv initialization
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# Stops terminal from scroll lock
+stty -ixon
 
-# npm initialization
-[ -s $HOME/.nvm/nvm.sh ] && . $HOME/.nvm/nvm.sh # This loads NVM
-
-# GVM stuff
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+################################################
+# ENVIRONMENT MANAGER
+################################################
 
 # ASDF initialization
 . $HOME/.asdf/asdf.sh
