@@ -1,3 +1,7 @@
+################################################
+# DEFAULTS
+################################################
+
 zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
 zstyle :compinstall filename "$HOME/.zshrc"
@@ -16,10 +20,11 @@ SAVEHIST=10000
 setopt autocd extendedglob completealiases
 bindkey -v
 
-# Foreign completions
-fpath=(~/.zsh/completions $fpath)
+################################################
+# PACKAGES
+################################################
 
-# Package manager
+# Init
 source ~/.zplug/init.zsh
 unset ZPLUG_SHALLOW
 zstyle ":zplug:tag" depth 1
@@ -61,11 +66,9 @@ zplug "junegunn/fzf", \
 # Apply Zplug things
 zplug load
 
-# FZF configs
-export FZF_DEFAULT_COMMAND='
-  (git ls-tree -r --name-only HEAD ||
-      rg --files "") 2> /dev/null'
-
+################################################
+# ALIASES
+################################################
 
 # Bind C-P and C-N to search command history according
 # to current input
@@ -78,7 +81,7 @@ bindkey -M vicmd '?' history-incremental-search-backward
 # Bind C-space to accept auto suggestion
 bindkey '^ ' autosuggest-accept
 
-# Deer binding
+# Deer (File Manager) binding
 bindkey '\ek' deer
 
 # Prettier ls
@@ -87,11 +90,17 @@ alias ls='ls --color=auto'
 # dotfiles config alias
 alias config="/usr/bin/git --git-dir=$HOME/.dotconf/ --work-tree=$HOME"
 
-# Ignore '/' as WORDCHARS
-local WORDCHARS='*?_[]~=&;!#$%^(){}<>'
+################################################
+# EXPORTS/VARIABLES
+################################################
 
 # Additional custom bin path
 export PATH="$HOME/bin:$PATH"
+
+# FZF configs
+export FZF_DEFAULT_COMMAND='
+  (git ls-tree -r --name-only HEAD ||
+      rg --files "") 2> /dev/null'
 
 # VDPAU settings
 export LIBVA_DRIVER_NAME=vdpau
@@ -103,10 +112,24 @@ export CHROME_BIN=chromium
 # Add history-substring-search-* widgets to list of widgets that clear the autosuggestion
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(history-substring-search-up history-substring-search-down)
 
-# Function to prepend branch so that it triggers JIRA's smart commit
+# Foreign completions
+fpath=(~/.zsh/completions $fpath)
+
+# Override what counts as word characters
+local WORDCHARS='*?_[]~=&;!#$%^(){}<>'
+
+################################################
+# FUNCTIONS
+################################################
+
+# Function to prepend branch so it triggers JIRA's smart commit
 function gitc() {
   git commit -m "`git rev-parse --abbrev-ref HEAD` #comment $1";
 }
+
+################################################
+# STATUS/PROMPT
+################################################
 
 # Add git related info on prompt
 precmd () {
