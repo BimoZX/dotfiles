@@ -42,6 +42,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kassio/neoterm'
 Plug 'alvan/vim-closetag'
 Plug 'jremmen/vim-ripgrep'
+Plug 'slashmili/alchemist.vim'
 
 " Programming Syntax
 Plug 'hail2u/vim-css3-syntax'
@@ -59,7 +60,7 @@ Plug 'Quramy/vim-js-pretty-template'
 Plug 'posva/vim-vue'
 Plug 'joker1007/vim-ruby-heredoc-syntax'
 Plug 'thinca/vim-ref'
-Plug 'slashmili/alchemist.vim'
+Plug 'isRuslan/vim-es6'
 
 " Pazzass and Themes
 Plug 'itchyny/lightline.vim'
