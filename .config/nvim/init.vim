@@ -32,17 +32,19 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'airblade/vim-gitgutter'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'oblitum/rainbow'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'tpope/vim-endwise'
 Plug 'danro/rename.vim'
 Plug 'benekastah/neomake'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kassio/neoterm'
 Plug 'alvan/vim-closetag'
 Plug 'jremmen/vim-ripgrep'
 Plug 'slashmili/alchemist.vim'
+Plug 'wesQ3/vim-windowswap'
+Plug 'chrisbra/NrrwRgn'
 
 " Programming Syntax
 Plug 'hail2u/vim-css3-syntax'
@@ -231,6 +233,11 @@ let g:jsx_ext_required = 0
 
 " Deoplete config
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources.ruby = ['omni']
+let g:deoplete#buffer#require_same_filetype = 0
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
 
 " Airline config
 let g:lightline = {
@@ -319,6 +326,9 @@ let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
 " traversing history without arrow key
 cmap <C-P> <Up>
 cmap <C-N> <Down>
+
+" Save with sudo
+cmap w!! w !sudo tee > /dev/null %
 
 " Supertab-esque completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
