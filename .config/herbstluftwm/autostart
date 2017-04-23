@@ -111,7 +111,7 @@ hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 
 # application
-hc keybind $Mod-Shift-Return spawn rofi -modi window,run -show run  -fg "#ECF0F1" -bg "#14161F" -hlfg "#14161F" -hlbg "#ECF0F1" -bc "#FFFFFF" -location 0 -lines 19 -bw 1 -font "Office Code Pro 13" -separator-style none -opacity 80
+hc keybind $Mod-Shift-Return spawn rofi -modi window,run -show run  -location 0 -lines 19 -bw 1 -font "Office Code Pro 13" -separator-style none -opacity 80
 hc keybind $Mod-n spawn termite --class=Ranger --title=ranger --exec=ranger
 hc keybind $Mod-m spawn termite --class=Ncmpcpp --title=ncmpcpp --exec=ncmpcpp
 
@@ -162,11 +162,12 @@ hc rule focus=on # normally focus new clients
 #hc rule class~'(.*[Rr]xvt.*|.*[Tt]erm|Konsole)' focus=on
 hc rule windowtype~'_NET_WM_WINDOW_TYPE_(DIALOG|UTILITY|SPLASH)' pseudotile=on
 hc rule windowtype='_NET_WM_WINDOW_TYPE_DIALOG' focus=on
-hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
+hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP|TOOLBAR)' manage=off
 hc rule class='Transmission-gtk' focus=on pseudotile=on
 hc rule class='Steam' tag=SM
 hc rule class='Ncmpcpp' tag=MC
 hc rule class='Sonata' tag=MC
+hc rule class='Spotify' tag=MC
 hc rule class='Pcmanfm' tag=FM
 hc rule class='Nautilus' tag=FM
 hc rule class='Ranger' tag=FM
