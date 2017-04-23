@@ -31,7 +31,6 @@ zstyle ":zplug:tag" depth 1
 zplug "zplug/zplug"
 
 # OMZ plugins
-zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/gitfast", from:oh-my-zsh
 zplug "plugins/git-extras", from:oh-my-zsh
 zplug "plugins/npm", from:oh-my-zsh
@@ -42,12 +41,12 @@ zplug "plugins/common-aliases", from:oh-my-zsh
 
 # External plugins
 zplug "tarruda/zsh-autosuggestions"
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "zsh-users/zsh-completions" 
 zplug "akoenig/npm-run.plugin.zsh"
 zplug "arzzen/calc.plugin.zsh"
 zplug "b4b4r07/enhancd", use:enhancd.sh
-zplug "hlissner/zsh-autopair", nice:10, \
+zplug "hlissner/zsh-autopair", defer:3, \
   use:autopair.zsh
 
 # File manager
