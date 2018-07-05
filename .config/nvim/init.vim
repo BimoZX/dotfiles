@@ -63,59 +63,61 @@ call plug#end()
 filetype plugin indent on     " required!
 
 " Setting vim for true colors
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" Gruvbox colorscheme config
-"let g:gruvbox_contrast_dark = 'hard'
+if (has("termguicolors"))
+ set termguicolors
+endif
 
 " Setting colorscheme
-colorscheme OceanicNext
-
-" Setting background
-set background=dark
+colorscheme base16-oceanicnext
 
 " Settings for search stuff
-set ignorecase
-set smartcase
+set clipboard =unnamedplus
+
+" Settings for search stuff
 set hlsearch
+set ignorecase
 set incsearch
+set smartcase
 
 " Indentation Settings
-set smartindent
 set autoindent
+set smartindent
 
 " For regex
 set magic
 
+" Remove redundant show mode
+set noshowmode
+
 " For matching brackets
+set mat =2
 set showmatch
-set mat=2
 
 " Eliminate annoying bells
 set noerrorbells
 set novisualbell
-set t_vb=
-set tm=500
+set t_vb =
+set tm   =500
 
 " Enabling syntax highlighting
 syntax enable
 
 " Backspace as it were meant to be
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
+set backspace  =eol,start,indent
+set whichwrap +=<,>,h,l
 
 " No backup or swap or whatever
 set nobackup
-set nowb
 set noswapfile
+set nowb
 
 " Tabs and spaces and all those related stuff
 set expandtab
-set smarttab
-set shiftwidth=2
-set tabstop=2
 set lbr
-set tw=500
+set shiftwidth =2
+set smarttab
+set tabstop    =2
+set tw         =500
 
 set ai
 set si
