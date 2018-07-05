@@ -161,10 +161,11 @@ set completeopt =menu,preview
 set autoread
 
 " Set 5 spaces apart when scrolling
-set so=5
+set so =5
 
 " Speed things up
 set ttyfast
+set updatetime =750
 
 " Markdown syntax highlighting for *.md files
 au BufRead,BufNewFile *.md set filetype=markdown
