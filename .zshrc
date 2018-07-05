@@ -172,6 +172,18 @@ setopt promptsubst
 # Stops terminal from scroll lock
 stty -ixon
 
+# Change cursor shape according to mode
+zle-keymap-select () {
+  if [ $KEYMAP = vicmd ]; then
+    # the command mode for vi
+    echo -ne "\e[2 q"
+  else
+    # the insert mode for vi
+    echo -ne "\e[5 q"
+  fi
+}
+echo -ne "\e[5 q"
+
 ################################################
 # ENVIRONMENT MANAGER
 ################################################
