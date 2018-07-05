@@ -135,26 +135,26 @@ set title
 
 " Modeline settings
 set modeline
-set modelines=3
+set modelines =3
 
 " Set Cmd menu and stuff, including ignoring some stuff
+set wildignore +=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
 set wildmenu
-set wildmode=list:longest
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/node_modules/*
+set wildmode    =list:longest
 
 " Set eol char  a nd stuff
 set list
-set listchars=eol:«,tab:>-,trail:·,extends:>,precedes:<
+set listchars =eol:«,tab:>-,trail:·,extends:>,precedes:<
 
 " Set status
-set laststatus=2
+set laststatus =2
 
 " Set default shell
-set shell=/usr/bin/bash
+set shell =/usr/bin/bash
 
 " Completion settings
-set complete=.,b,u,]
-set completeopt=menu,preview
+set complete    =.,b,u,]
+set completeopt =menu,preview
 
 " Make vim automatically load externally edited file
 set autoread
@@ -169,27 +169,17 @@ set ttyfast
 au BufRead,BufNewFile *.md set filetype=markdown
 
 " Set vim to find tags in
-set tags+=gems.tags,./.git/tags,./tags,tags;/
+set tags +=gems.tags,./.git/tags,./tags,tags;/
 
-" Force ruby path by rbenv
-let g:ruby_path = system('echo $HOME/.rbenv/shims')
+" Force ruby path by asdf
+let g:ruby_path = system('echo $HOME/.asdf/shims')
+
+" Android SDK absolute path
+let g:android_sdk_path = '/opt/android-sdk'
 
 " Persistend Undo (Utopia)
+set undodir =~/.config/nvim/undodir
 set undofile
-set undodir=~/.vim/undodir
-
-" Cursor settings
-if has('nvim')
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
-elseif empty($TMUX)
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-else
-  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-  let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
-endif
 
 " Extension settings
 
