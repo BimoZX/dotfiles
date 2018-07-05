@@ -95,6 +95,7 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotconf/ --work-tree=$HOME"
 
 # Additional custom bin path
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # FZF configs
 export FZF_DEFAULT_COMMAND='
