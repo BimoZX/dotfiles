@@ -50,6 +50,7 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'hsanson/vim-android'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryym/vim-riot'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
 
 " Pazzass and Themes
