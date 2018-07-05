@@ -54,7 +54,7 @@ zplug "Vifon/deer", \
   hook-load:'
     fpath=(~/.zplug/repos/Vifon/deer $fpath) &&
     autoload -U deer &&
-    zle -N deer
+    zle -N deer;
   '
 
 # Fuzzy finder
@@ -179,3 +179,7 @@ stty -ixon
 # ASDF initialization
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="~/.sdkman"
+[[ -s "~/.sdkman/bin/sdkman-init.sh" ]] && source "~/.sdkman/bin/sdkman-init.sh"
