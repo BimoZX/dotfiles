@@ -319,27 +319,19 @@ nmap <Leader>op :NERDTreeToggle<CR>
 " Binding for color_highlight
 nmap <Leader>ct :ColorToggle<CR>
 
-" SnipMate bindings
-imap <C-J> <ESC>a<Plug>snipMateNextOrTrigger
-smap <C-J> <Plug>snipMateNextOrTrigger
-imap <C-K> <ESC>a<Plug>snipMateBack
-smap <C-K> <Plug>snipMateBack
-imap <C-L> <ESC>a<Plug>snipMateShow
-
 " Slimux bindings (make it more vim-like)
 xmap <leader>r :SlimuxREPLSendSelection<CR>
 nmap <leader>rr :SlimuxREPLSendLine<CR>
 nmap <leader>rc :SlimuxREPLConfigure<CR>
 
-" Ag bindings
-nmap <leader>k :Ag
+" Rg bindings
+nmap <leader>k :Rg 
+
+" Neosnippet binding
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 " Yankstack bindings
 nmap <C-P> <Plug>yankstack_substitute_older_paste
 nmap <C-N> <Plug>yankstack_substitute_newer_paste
-
-" Events config
-
-" Automatic syntax check
-autocmd! BufWritePost * Neomake
-autocmd FileType javascript,javascript.jsx JsPreTmpl html
