@@ -197,25 +197,37 @@ let g:yankstack_map_keys=0
 let g:NERDTreeIgnore=['^tags$']
 
 " Enable rainbow parentheses to be available
-let g:rainbow_active = 1
+let g:rainbow_active =1
 
 " JSX extension settings
-let g:jsx_ext_required = 0
+let g:jsx_ext_required =0
 
 " Deoplete config
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources.ruby = ['omni']
+let g:deoplete#enable_at_startup            = 1
+let g:deoplete#ignore_sources               = {}
+let g:deoplete#ignore_sources.ruby          = ['omni']
 let g:deoplete#buffer#require_same_filetype = 0
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.ruby = 'rubycomplete#Complete'
+let g:deoplete#omni#functions               = {}
+let g:deoplete#omni#functions.ruby          = 'rubycomplete#Complete'
+
+" Neosnippet.vim config
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+" Tell Neosnippet about the other snippets
+let g:neosnippet#snippets_directory ='.config/nvim/plugged/vim-snippets/snippets'
 
 " Airline config
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
+      \             [ 'fugitive' ],
+      \             [ 'filename' ],
+      \             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'filetype' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightLineFugitive',
@@ -223,27 +235,32 @@ let g:lightline = {
       \   'modified': 'LightLineModified',
       \   'filename': 'LightLineFilename'
       \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'component_expand': {
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors':   'lightline#ale#errors',
+      \   'linter_ok':       'lightline#ale#ok',
+      \ },
+      \ 'component_type': {
+      \    'linter_checking': 'left',
+      \    'linter_warnings': 'warning',
+      \    'linter_errors': 'error',
+      \    'linter_ok': 'left',
       \ }
-
+      \ }
 function! LightLineModified()
-  if &filetype == "help"
+  if &filetype == "vim-plug" || &filetype == "help" || &readonly
     return ""
   elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
+    return "✎"
   else
-    return ""
+    return "✔"
   endif
 endfunction
 
 function! LightLineReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "🔒"
+  if &readonly
+    return "👁"
   else
     return ""
   endif
@@ -252,45 +269,26 @@ endfunction
 function! LightLineFugitive()
   if exists("*fugitive#head")
     let _ = fugitive#head()
-    return strlen(_) ? ''._ : ''
+    return strlen(_) ? ' '._ : ''
   endif
   return ''
 endfunction
 
 function! LightLineFilename()
   return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
-       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != LightLineModified() ? ' ' . LightLineModified() : '')
+       \ ('' != LightLineModified() ? LightLineModified() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]')
 endfunction
 
-" Neomake configs
-let g:neomake_serialize = 1
-let g:neomake_serialize_abort_on_error = 1
-let g:neomake_elixir_enabled_makers = ['credo', 'elixirc']
-let g:neomake_elixir_elixirc_maker = {
-        \ 'args': ['%:p', '--ignore-module-conflict', '--app', 'mix', '--app', 'ex_unit', '-pa', '_build/dev/lib/\*/ebin', '-o', '/tmp'],
-        \ 'errorformat':
-        \ '** %s %f:%l: %m,' .
-        \ '%f:%l: warning: %m'
-        \ }
-
-let g:neomake_elixir_mix_maker = {
-      \ 'args': ['compile'],
-      \ 'errorformat':
-      \ '** %s %f:%l: %m,' .
-      \ '%f:%l: warning: %m'
-      \ }
-
-let g:neomake_ruby_enabled_makers = ['jruby', 'mri']
-
 " Elixir configs
-let g:elixir_maxmenu = 30
+let g:elixir_maxmenu =30
 
 " Colorizer configs
-let g:colorizer_auto_filetype='scss,less,css,html'
+let g:colorizer_auto_filetype  = 'scss,less,css,html'
 
 " filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
+let g:closetag_filenames       = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 
 " Some keybinding
 
