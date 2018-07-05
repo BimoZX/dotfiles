@@ -19,42 +19,33 @@ cursor_shape = block
 browser = chromium
 
 [colors]
+foreground      = #C0C5CE
+foreground_bold = #C0C5CE
+cursor          = #C0C5CE
+background      = #1B2B34
 
-# special
-foreground      = #d7d0c7
-foreground_bold = #d7d0c7
-cursor          = #d7d0c7
-background      = #151515
+# 16 color space
+color0  = #1B2B34
+color1  = #EC5f67
+color2  = #99C794
+color3  = #FAC863
+color4  = #6699CC
+color5  = #C594C5
+color6  = #5FB3B3
+color7  = #C0C5CE
+color8  = #65737E
+color9  = #EC5f67
+color10 = #99C794
+color11 = #FAC863
+color12 = #6699CC
+color13 = #C594C5
+color14 = #5FB3B3
+color15 = #D8DEE9
 
-# black
-color0  = #101010
-color8  = #404040
-
-# red
-color1  = #e84f4f
-color9  = #d23d3d
-
-# green
-color2  = #b8d68c
-color10 = #a0cf5d
-
-# yellow
-color3  = #e1aa5d
-color11 = #f39d21
-
-# blue
-color4  = #7dc1cf
-color12 = #4e9fb1
-
-# magenta
-color5  = #9b64fb
-color13 = #8542ff
-
-# cyan
-color6  = #6d878d
-color14 = #42717b
-
-# white
-color7  = #dddddd
-color15 = #dddddd
-
+# 256 color space
+color16 = #F99157
+color17 = #AB7967
+color18 = #343D46
+color19 = #4F5B66
+color20 = #A7ADBA
+color21 = #CDD3DE
