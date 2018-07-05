@@ -204,6 +204,10 @@ let g:rainbow_active =1
 " JSX extension settings
 let g:jsx_ext_required =0
 
+" ALE config
+let g:ale_sign_error = '!'
+let g:ale_sign_warning = '#'
+
 " Deoplete config
 let g:deoplete#enable_at_startup            = 1
 let g:deoplete#ignore_sources               = {}
