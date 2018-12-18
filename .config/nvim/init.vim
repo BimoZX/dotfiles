@@ -7,17 +7,21 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 
 " Snippets
-Plug 'Shougo/neosnippet.vim'
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Utilities
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'akhaku/vim-java-unused-imports'
 Plug 'alvan/vim-closetag'
+Plug 'arthurxavierx/vim-caser'
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'brooth/far.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/NrrwRgn'
@@ -30,16 +34,21 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-smartinput'
 Plug 'kana/vim-textobj-user'
 Plug 'kassio/neoterm'
+Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
+Plug 'markonm/traces.vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'maximbaz/lightline-ale'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'scrooloose/nerdcommenter'
+Plug 'sgur/vim-editorconfig'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'simnalamburt/vim-mundo'
 Plug 'slashmili/alchemist.vim'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -208,20 +217,29 @@ let g:jsx_ext_required =0
 let g:ale_sign_error = '!'
 let g:ale_sign_warning = '#'
 
-" Deoplete config
+" Language server configs
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'ruby': ['solargraph', 'stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ }
+
+" deoplete.nvim config
 let g:deoplete#enable_at_startup            = 1
-let g:deoplete#ignore_sources               = {}
-let g:deoplete#ignore_sources.ruby          = ['omni']
-let g:deoplete#buffer#require_same_filetype = 0
-let g:deoplete#omni#functions               = {}
-let g:deoplete#omni#functions.ruby          = 'rubycomplete#Complete'
 
-" Neosnippet.vim config
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
+call deoplete#custom#option({
+      \ 'auto_complete_delay': 0,
+      \ 'auto_refresh_delay': 10,
+      \ 'buffer': { 'require_same_filetype': 0 },
+      \ 'ignore_sources': { 'ruby': ['omni'] },
+      \ 'min_pattern_length': 1,
+      \ 'omni': { 'functions': {} },
+      \ })
 
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory ='.config/nvim/plugged/vim-snippets/snippets'
+" Ultisnips config
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-d>"
 
 " Airline config
 let g:lightline = {
