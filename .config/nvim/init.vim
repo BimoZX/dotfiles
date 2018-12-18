@@ -124,10 +124,10 @@ set nowb
 " Tabs and spaces and all those related stuff
 set expandtab
 set lbr
-set shiftwidth =2
+set shiftwidth  =2
 set smarttab
-set tabstop    =2
-set tw         =500
+set softtabstop =2
+set tw          =500
 
 set ai
 set si
@@ -198,14 +198,15 @@ set undofile
 runtime macros/matchit.vim
 
 " indentLine settings
-let g:indentLine_char='│'
+let g:indentLine_char            = '│'
 let g:indentLine_fileTypeExclude = ['text']
 
 " Yankstack settings
-let g:yankstack_map_keys=0
+let g:yankstack_map_keys =0
 
 " NERDTree settings
-let g:NERDTreeIgnore=['^tags$']
+let g:NERDTreeIgnore      = ['^tags$']
+let g:NERDTreeNaturalSort =1
 
 " Enable rainbow parentheses to be available
 let g:rainbow_active =1
