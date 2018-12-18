@@ -17,6 +17,7 @@ compinit
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
+EDITOR=nvim
 setopt autocd extendedglob completealiases
 bindkey -v
 
