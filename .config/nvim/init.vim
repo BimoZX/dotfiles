@@ -321,9 +321,6 @@ let g:closetag_xhtml_filetypes = 'xhtml,jsx'
 cmap <C-P> <Up>
 cmap <C-N> <Down>
 
-" Save with sudo
-cmap w!! w !sudo tee > /dev/null %
-
 " Supertab-esque completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
