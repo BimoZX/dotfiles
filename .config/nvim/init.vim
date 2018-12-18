@@ -163,8 +163,8 @@ set laststatus =2
 set shell =/usr/bin/bash
 
 " Completion settings
-set complete    =.,b,u,]
-set completeopt =menu,preview
+set complete    =.,b,t,i,]
+set completeopt =menuone,noselect,preview
 
 " Make vim automatically load externally edited file
 set autoread
