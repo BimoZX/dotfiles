@@ -185,6 +185,12 @@ setopt promptsubst
 # MISC.
 ################################################
 
+# Source FZF
+source ~/.fzf.zsh
+
+# Deer ZLE
+zle -N deer
+
 # Stops terminal from scroll lock
 stty -ixon
 
