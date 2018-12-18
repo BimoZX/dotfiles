@@ -52,16 +52,16 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:3
 
 # File manager
 zplug "Vifon/deer", \
-  hook-load:'
-    fpath=(~/.zplug/repos/Vifon/deer $fpath) &&
-    autoload -U deer &&
-    zle -N deer;
-  '
+  use:'deer'
 
 # Fuzzy finder
 zplug "junegunn/fzf", \
-  hook-build:'./install --all', \
-  hook-load:'[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh'
+  hook-build:'./install --all'
+
+# Fuzzy finder
+zplug "denilsonsa/prettyping", \
+  as:command, \
+  use:prettyping
 
 # Apply Zplug things
 zplug load
