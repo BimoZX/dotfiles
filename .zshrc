@@ -113,7 +113,10 @@ export PATH="$HOME/go/bin:$PATH"
 # FZF configs
 export FZF_DEFAULT_COMMAND='
   (git ls-tree -r --name-only HEAD ||
-      rg --files "") 2> /dev/null'
+      rg --files) 2> /dev/null'
+
+# add support for ctrl+o to open selected file in Neovim
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(nvim {})+abort'"
 
 # VDPAU settings
 export LIBVA_DRIVER_NAME=vdpau
