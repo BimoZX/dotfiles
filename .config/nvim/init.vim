@@ -277,15 +277,15 @@ function! LightLineModified()
   if &filetype == "vim-plug" || &filetype == "help" || &readonly
     return ""
   elseif &modified
-    return "✎"
+    return "✎ "
   else
-    return "✔"
+    return "✔ "
   endif
 endfunction
 
 function! LightLineReadonly()
   if &readonly
-    return "👁"
+    return "👁 "
   else
     return ""
   endif
@@ -294,7 +294,7 @@ endfunction
 function! LightLineFugitive()
   if exists("*fugitive#head")
     let _ = fugitive#head()
-    return strlen(_) ? ' '._ : ''
+    return strlen(_) ? '  '._ : ''
   endif
   return ''
 endfunction
