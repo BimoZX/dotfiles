@@ -9,7 +9,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickab le_url = true
-font = Office Code Pro 8
+font = lucy tewi2a Regular 8
 search_wrap = true
 
 cursor_blink = system
