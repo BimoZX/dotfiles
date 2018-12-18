@@ -87,8 +87,20 @@ bindkey '\ek' deer
 # Prettier ls
 alias ls='ls --color=auto'
 
+# Prettier ping
+alias ping='prettyping --nolegend'
+
 # dotfiles config alias
 alias config="/usr/bin/git --git-dir=$HOME/.dotconf/ --work-tree=$HOME"
+
+# Better disk usage
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+
+# Better cat
+alias cat="bat"
+
+# Preview directory
+alias preview="fzf --preview 'bat --color \"always\" {}'"
 
 ################################################
 # EXPORTS/VARIABLES
