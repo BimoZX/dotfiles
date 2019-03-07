@@ -43,7 +43,7 @@ zplug "plugins/web-search", from:oh-my-zsh
 # External plugins
 zplug "akoenig/npm-run.plugin.zsh"
 zplug "arzzen/calc.plugin.zsh"
-zplug "b4b4r07/enhancd", use:enhancd.sh
+zplug "b4b4r07/enhancd", use:init.sh
 zplug "hlissner/zsh-autopair", defer:3, \
   use:autopair.zsh
 zplug "tarruda/zsh-autosuggestions"
