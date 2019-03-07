@@ -222,6 +222,8 @@ let g:ale_sign_warning = '#'
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'ruby': ['solargraph', 'stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ }
 
