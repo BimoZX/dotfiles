@@ -63,6 +63,22 @@ zplug "denilsonsa/prettyping", \
   as:command, \
   use:prettyping
 
+# Programming languages version manager
+zplug "asdf-vm/asdf", \
+  dir:~/.asdf, \
+  as:command, \
+  use:asdf
+
+# Programming languages version manager
+zplug "asdf-vm/asdf", \
+  dir:~/.asdf, \
+  as:command, \
+  use:asdf
+
+# Programming languages version manager
+zplug "tmux-plugins/tpm", \
+  dir:~/.tmux/plugins/tpm
+
 # Apply Zplug things
 zplug load
 
