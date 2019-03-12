@@ -73,11 +73,11 @@ filetype plugin indent on     " required!
 
 " Setting vim for true colors
 if (has("termguicolors"))
- set termguicolors
+  set termguicolors
 endif
 
 " Setting colorscheme
-colorscheme base16-oceanicnext
+colorscheme OceanicNext
 
 " Settings for search stuff
 set clipboard =unnamedplus
