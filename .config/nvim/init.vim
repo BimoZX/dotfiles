@@ -37,14 +37,14 @@ Plug 'kassio/neoterm'
 Plug 'lambdalisue/suda.vim'
 Plug 'luochen1990/rainbow'
 Plug 'markonm/traces.vim'
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'maximbaz/lightline-ale'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sgur/vim-editorconfig'
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 Plug 'simnalamburt/vim-mundo'
 Plug 'slashmili/alchemist.vim'
+Plug 'svermeulen/vim-cutlass'
+Plug 'svermeulen/vim-yoink'
 Plug 'ternjs/tern_for_vim', {'do': 'npm install'}
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
@@ -52,7 +52,6 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
 Plug 'wesQ3/vim-windowswap'
 "
 " Programming Syntax
@@ -64,7 +63,7 @@ Plug 'tpope/vim-rails'
 
 " Pazzass and Themes
 Plug 'chriskempson/base16-vim'
-Plug 'flazz/vim-colorschemes'
+Plug 'mhartington/oceanic-next'
 Plug 'itchyny/lightline.vim'
 Plug 'powerman/vim-plugin-AnsiEsc'
 
@@ -214,10 +213,6 @@ let g:rainbow_active =1
 " JSX extension settings
 let g:jsx_ext_required =0
 
-" ALE config
-let g:ale_sign_error = '!'
-let g:ale_sign_warning = '#'
-
 " Language server configs
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
@@ -250,8 +245,7 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive' ],
-      \             [ 'filename' ],
-      \             ['linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ],
+      \             [ 'filename' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'percent' ],
       \              [ 'filetype' ] ]
@@ -262,34 +256,25 @@ let g:lightline = {
       \   'modified': 'LightLineModified',
       \   'filename': 'LightLineFilename'
       \ },
-      \ 'component_expand': {
-      \   'linter_checking': 'lightline#ale#checking',
-      \   'linter_warnings': 'lightline#ale#warnings',
-      \   'linter_errors':   'lightline#ale#errors',
-      \   'linter_ok':       'lightline#ale#ok',
-      \ },
-      \ 'component_type': {
-      \    'linter_checking': 'left',
-      \    'linter_warnings': 'warning',
-      \    'linter_errors': 'error',
-      \    'linter_ok': 'left',
-      \ }
+      \ 'component_expand': {},
+      \ 'component_type': {}
       \ }
 function! LightLineModified()
   if &filetype == "vim-plug" || &filetype == "help" || &readonly
     return ""
   elseif &modified
-    return "✎ "
+    return "✎"
   else
-    return "✔ "
+    return "✔"
   endif
 endfunction
 
+"!!! REPORT !!!
 function! LightLineReadonly()
   if &readonly
     return "👁 "
   else
-    return ""
+    return " "
   endif
 endfunction
 
@@ -302,7 +287,7 @@ function! LightLineFugitive()
 endfunction
 
 function! LightLineFilename()
-  return ('' != LightLineReadonly() ? LightLineReadonly() . ' ' : '') .
+  return (&readonly ? "X " : '') .
        \ ('' != LightLineModified() ? LightLineModified() . ' ' : '') .
        \ ('' != expand('%:t') ? expand('%:t') : '[No Name]')
 endfunction
@@ -316,6 +301,9 @@ let g:colorizer_auto_filetype  = 'scss,less,css,html'
 " filenames like *.xml, *.html, *.xhtml, ...
 let g:closetag_filenames       = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
 let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+" Yoink configs
+let g:yoinkIncludeDeleteOperations = 1
 
 " Some keybinding
 
@@ -351,11 +339,16 @@ nmap <leader>rc :SlimuxREPLConfigure<CR>
 " Rg bindings
 nmap <leader>k :Rg 
 
-" Neosnippet binding
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+" Yoink  bindings
+nmap <C-N> <plug>(YoinkPostPasteSwapBack)
+nmap <C-P> <plug>(YoinkPostPasteSwapForward)
 
-" Yankstack bindings
-nmap <C-P> <Plug>yankstack_substitute_older_paste
-nmap <C-N> <Plug>yankstack_substitute_newer_paste
+nmap p <plug>(YoinkPaste_p)
+nmap P <plug>(YoinkPaste_P)
+
+" True cut bindings
+nnoremap <leader>d d
+xnoremap <leader>d d
+
+nnoremap <leader>dd dd
+nnoremap <leader>D D
