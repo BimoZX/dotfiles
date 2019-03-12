@@ -70,12 +70,6 @@ zplug "asdf-vm/asdf", \
   use:asdf
 
 # Programming languages version manager
-zplug "asdf-vm/asdf", \
-  dir:~/.asdf, \
-  as:command, \
-  use:asdf
-
-# Programming languages version manager
 zplug "tmux-plugins/tpm", \
   dir:~/.tmux/plugins/tpm
 
