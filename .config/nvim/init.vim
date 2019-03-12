@@ -86,6 +86,7 @@ set clipboard =unnamedplus
 set hlsearch
 set ignorecase
 set incsearch
+set inccommand=split
 set smartcase
 
 " Indentation Settings
