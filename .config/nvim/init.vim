@@ -53,8 +53,9 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'wesQ3/vim-windowswap'
-"
+
 " Programming Syntax
+Plug 'fatih/vim-go'
 Plug 'hsanson/vim-android'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryym/vim-riot'

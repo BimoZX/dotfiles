@@ -116,6 +116,9 @@ alias preview="fzf --preview 'bat --color \"always\" {}'"
 # EXPORTS/VARIABLES
 ################################################
 
+# Set go Path
+export GOPATH="$HOME/go"
+
 # Additional custom bin path
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
