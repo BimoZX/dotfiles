@@ -26,6 +26,7 @@ Plug 'brooth/far.vim'
 Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/NrrwRgn'
 Plug 'danro/rename.vim'
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'epeli/slimux'
 Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
@@ -235,6 +236,9 @@ call deoplete#custom#option({
       \ 'min_pattern_length': 1,
       \ 'omni': { 'functions': {} },
       \ })
+
+" Close deoplete doc preview window after completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Ultisnips config
 let g:UltiSnipsExpandTrigger="<c-k>"
