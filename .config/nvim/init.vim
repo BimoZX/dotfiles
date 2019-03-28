@@ -80,8 +80,8 @@ endif
 " Setting colorscheme
 colorscheme OceanicNext
 
-" Settings for search stuff
-set clipboard =unnamedplus
+" Set default clipboard register
+set clipboard =unnamed
 
 " Settings for search stuff
 set hlsearch
