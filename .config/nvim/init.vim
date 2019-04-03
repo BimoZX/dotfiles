@@ -237,8 +237,8 @@ call deoplete#custom#option({
       \ 'omni': { 'functions': {} },
       \ })
 
-" Close deoplete doc preview window after completion
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+" Close deoplete doc preview window after completion but not inside command window
+autocmd InsertLeave,CompleteDone * if !bufexists("[Command Line]") && pumvisible() == 0 | pclose | endif
 
 " Ultisnips config
 let g:UltiSnipsExpandTrigger="<c-k>"
