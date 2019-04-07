@@ -1,16 +1,16 @@
 [options]
-resize_grip = false
-scroll_on_output = false
+resize_grip         = false
+scroll_on_output    = false
 scroll_on_keystroke = true
-audible_bell = false
-visible_bell = false
-mouse_autohide = true
-allow_bold = true
-dynamic_title = true
-urgent_on_bell = true
-clickab le_url = true
-font = lucy tewi2a Regular 8
-search_wrap = true
+audible_bell        = false
+visible_bell        = false
+mouse_autohide      = true
+allow_bold          = true
+dynamic_title       = true
+urgent_on_bell      = true
+clickab le_url      = true
+font                = lucy tewi2a Regular 8
+search_wrap         = true
 
 cursor_blink = system
 

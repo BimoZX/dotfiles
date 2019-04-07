@@ -88,7 +88,7 @@ set clipboard =unnamed
 set hlsearch
 set ignorecase
 set incsearch
-set inccommand=split
+set inccommand =split
 set smartcase
 
 " Indentation Settings
@@ -185,10 +185,10 @@ au BufRead,BufNewFile *.md set filetype=markdown
 set tags +=gems.tags,./.git/tags,./tags,tags;/
 
 " Force ruby path by asdf
-let g:ruby_path = system('echo $HOME/.asdf/shims')
+let g:ruby_path =system('echo $HOME/.asdf/shims')
 
 " Android SDK absolute path
-let g:android_sdk_path = '/opt/android-sdk'
+let g:android_sdk_path ='/opt/android-sdk'
 
 " Persistend Undo (Utopia)
 set undodir =~/.config/nvim/undodir
@@ -200,14 +200,14 @@ set undofile
 runtime macros/matchit.vim
 
 " indentLine settings
-let g:indentLine_char            = '│'
-let g:indentLine_fileTypeExclude = ['text']
+let g:indentLine_char            ='│'
+let g:indentLine_fileTypeExclude =['text']
 
 " Yankstack settings
 let g:yankstack_map_keys =0
 
 " NERDTree settings
-let g:NERDTreeIgnore      = ['^tags$']
+let g:NERDTreeIgnore      =['^tags$']
 let g:NERDTreeNaturalSort =1
 
 " Enable rainbow parentheses to be available
@@ -217,36 +217,36 @@ let g:rainbow_active =1
 let g:jsx_ext_required =0
 
 " Language server configs
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ 'ruby': ['solargraph', 'stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'javascript': ['javascript-typescript-stdio'],
+let g:LanguageClient_serverCommands ={
+    \ 'rust':           ['rustup', 'run', 'nightly', 'rls'],
+    \ 'ruby':           ['solargraph', 'stdio'],
+    \ 'typescript':     ['javascript-typescript-stdio'],
+    \ 'javascript':     ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ }
 
 " deoplete.nvim config
-let g:deoplete#enable_at_startup            = 1
+let g:deoplete#enable_at_startup =1
 
 call deoplete#custom#option({
       \ 'auto_complete_delay': 0,
-      \ 'auto_refresh_delay': 10,
-      \ 'buffer': { 'require_same_filetype': 0 },
-      \ 'ignore_sources': { 'ruby': ['omni'] },
-      \ 'min_pattern_length': 1,
-      \ 'omni': { 'functions': {} },
+      \ 'auto_refresh_delay':  10,
+      \ 'buffer':              { 'require_same_filetype': 0 },
+      \ 'ignore_sources':      { 'ruby': ['omni'] },
+      \ 'min_pattern_length':  1,
+      \ 'omni':                { 'functions': {} },
       \ })
 
 " Close deoplete doc preview window after completion but not inside command window
 autocmd InsertLeave,CompleteDone * if !bufexists("[Command Line]") && pumvisible() == 0 | pclose | endif
 
 " Ultisnips config
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-d>"
+let g:UltiSnipsExpandTrigger       ="<c-k>"
+let g:UltiSnipsJumpForwardTrigger  ="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger ="<c-d>"
 
 " Airline config
-let g:lightline = {
+let g:lightline ={
       \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
@@ -286,7 +286,7 @@ endfunction
 
 function! LightLineFugitive()
   if exists("*fugitive#head")
-    let _ = fugitive#head()
+    let _ =fugitive#head()
     return strlen(_) ? '  '._ : ''
   endif
   return ''
@@ -302,14 +302,14 @@ endfunction
 let g:elixir_maxmenu =30
 
 " Colorizer configs
-let g:colorizer_auto_filetype  = 'scss,less,css,html'
+let g:colorizer_auto_filetype  ='scss,less,css,html'
 
 " filenames like *.xml, *.html, *.xhtml, ...
-let g:closetag_filenames       = "*.html,*.xhtml,*.phtml,*.js,*.jsx"
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_filenames       ="*.html,*.xhtml,*.phtml,*.js,*.jsx"
+let g:closetag_xhtml_filetypes ='xhtml,jsx'
 
 " Yoink configs
-let g:yoinkIncludeDeleteOperations = 1
+let g:yoinkIncludeDeleteOperations =1
 
 " Some keybinding
 
@@ -318,7 +318,7 @@ cmap <C-P> <Up>
 cmap <C-N> <Down>
 
 " Supertab-esque completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>    pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Quicksave
@@ -338,7 +338,7 @@ nmap <Leader>op :NERDTreeToggle<CR>
 nmap <Leader>ct :ColorToggle<CR>
 
 " Slimux bindings (make it more vim-like)
-xmap <leader>r :SlimuxREPLSendSelection<CR>
+xmap <leader>r  :SlimuxREPLSendSelection<CR>
 nmap <leader>rr :SlimuxREPLSendLine<CR>
 nmap <leader>rc :SlimuxREPLConfigure<CR>
 

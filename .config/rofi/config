@@ -3,10 +3,10 @@ rofi.modi:            window,run
 rofi.location:        0
 rofi.lines:           5
 rofi.separator-style: none
-rofi.hide-scrollbar: true
+rofi.hide-scrollbar:  true
 
 rofi.color-enabled: true
-rofi.color-window: #242424, #242424, #242424
-rofi.color-normal: #242424, #ffffff, #242424, #ffffff, #242424
-rofi.color-active: #242424, #008ed4, #242424, #ffffff, #008ed4
-rofi.color-urgent: #242424, #bd4749, #242424, #ffffff, #bd4749
+rofi.color-window:  #242424, #242424, #242424
+rofi.color-normal:  #242424, #ffffff, #242424, #ffffff, #242424
+rofi.color-active:  #242424, #008ed4, #242424, #ffffff, #008ed4
+rofi.color-urgent:  #242424, #bd4749, #242424, #ffffff, #bd4749

@@ -8,33 +8,30 @@
 ;=====================================================
 
 [colors]
-background = #222
+background     = #222
 background-alt = #444
-foreground = #dfdfdf
+foreground     = #dfdfdf
 foreground-alt = #ddd
-primary = #7d9bcd
-secondary = #5c79b5
-alert = #bd2c40
+primary        = #7d9bcd
+secondary      = #5c79b5
+alert          = #bd2c40
 
 [bar/main]
-;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 20
-;offset-x = 1%
-;offset-y = 1%
-radius = 0
+width        = 100%
+height       = 20
+radius       = 0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
+line-size  = 1
 line-color = #f00
 
-padding-left = 0
+padding-left  = 0
 padding-right = 0
 
-module-margin-left = 1
+module-margin-left  = 1
 module-margin-right = 2
 
 font-0 = "SF Pro Display:pixelsize=9:weight=bold;2"
@@ -42,16 +39,16 @@ font-1 = "Font Awesome 5 Free:size=9;2"
 font-2 = "Font Awesome 5 Brands:size=9;2"
 font-3 = "Font Awesome 5 Free Solid:size=9;2"
 
-modules-left = xwindow
+modules-left   = xwindow
 modules-center = bspwm
-modules-right = cpu temperature pulseaudio date wired-network wireless-network
+modules-right  = cpu temperature pulseaudio date wired-network wireless-network
 
 tray-position = right
-tray-padding = 4
+tray-padding  = 4
 
 wm-restack = bspwm
 
-cursor-click = pointer
+cursor-click  = pointer
 cursor-scroll = ns-resize
 
 [module/bspwm]
@@ -77,14 +74,14 @@ enable-scroll = true
 ; ; NOTE: The desktop name needs to match the name configured by the WM
 ; ; You can get a list of the defined desktops using:
 ; ; $ xprop -root _NET_DESKTOP_NAMES
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
+ws-icon-0       = 1;
+ws-icon-1       = 2;
+ws-icon-2       = 3;
+ws-icon-3       = 4;
+ws-icon-4       = 5;
+ws-icon-5       = 6;
+ws-icon-6       = 7;
+ws-icon-7       = 8;
 ws-icon-default = 
 ;
 ; ; Available tags:
@@ -103,110 +100,109 @@ ws-icon-default = 
 ; ;   %icon%
 ; ;   %index%
 ; ; Default: %icon%  %name%
-label-focused = %icon%
+label-focused            = %icon%
 label-focused-foreground = #ffffff
 label-focused-background = #3f3f3f
-label-focused-padding = 3
+label-focused-padding    = 3
 ;
 ; ; Available tokens:
 ; ;   %name%
 ; ;   %icon%
 ; ;   %index%
 ; ; Default: %icon%  %name%
-label-occupied = %icon%
+label-occupied            = %icon%
 label-occupied-foreground = #ffffff
-label-occupied-padding = 3
+label-occupied-padding    = 3
 ;
 ; ; Available tokens:
 ; ;   %name%
 ; ;   %icon%
 ; ;   %index%
 ; ; Default: %icon%  %name%
-label-urgent = %icon%
+label-urgent            = %icon%
 label-urgent-foreground = #bd4749
-label-urgent-padding = 3
+label-urgent-padding    = 3
 ;
 ; ; Available tokens:
 ; ;   %name%
 ; ;   %icon%
 ; ;   %index%
 ; ; Default: %icon%  %name%
-label-dimmed = %icon%
-label-dimmed-foreground = #55
+label-dimmed                    = %icon%
+label-dimmed-foreground         = #55
 label-dimmed-focused-foreground = #55
-label-dimmed-padding = 3
+label-dimmed-padding            = 3
 ;
 ; ; Available tokens:
 ; ;   %name%
 ; ;   %icon%
 ; ;   %index%
 ; ; Default: %icon%  %name%
-label-empty = %icon%
+label-empty            = %icon%
 label-empty-foreground = #55
-label-empty-padding = 3
+label-empty-padding    = 3
 
 [module/xwindow]
-type = internal/xwindow
-label = %title: 0:40:...%
-label-maxlen = 150
-#format-background = #808000
+type              = internal/xwindow
+label             = %title: 0:40:...%
+label-maxlen      = 150
 format-foreground = #FFFFFF
-format-padding = 2
+format-padding    = 2
 
 [module/xkeyboard]
-type = internal/xkeyboard
+type        = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
+format-prefix            = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline  = ${colors.secondary}
 
-label-layout = %layout%
+label-layout           = %layout%
 label-layout-underline = ${colors.secondary}
 
-label-indicator-padding = 2
-label-indicator-margin = 1
+label-indicator-padding    = 2
+label-indicator-margin     = 1
 label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-underline  = ${colors.secondary}
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
+label-mounted              = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted            = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/cpu]
-type = internal/cpu
-interval = 2
-format-prefix = " "
+type              = internal/cpu
+interval          = 2
+format-prefix     = " "
 format-foreground = ${colors.foreground-alt}
-label = %percentage%%
+label             = %percentage%%
 
 [module/date]
-type = internal/date
+type     = internal/date
 interval = 5
 
-date = "%a %d %b"
+date     = "%a %d %b"
 date-alt = " %Y-%m-%d"
 
-time = %H:%M
+time     = %H:%M
 time-alt = %H:%M:%S
 
 label =  %date% %time%
 
 [module/temperature]
-type = internal/temperature
-thermal-zone = 0
+type             = internal/temperature
+thermal-zone     = 0
 warn-temperature = 60
-hwmon-path = /sys/devices/platform/nct6775.2592/hwmon/hwmon1/temp7_input
+hwmon-path       = /sys/devices/platform/nct6775.2592/hwmon/hwmon1/temp7_input
 
 format = <ramp> <label>
 
-label = %temperature-c%
-label-warn = %temperature-c%
+label                 = %temperature-c%
+label-warn            = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
+ramp-0          = 
 ramp-foreground = ${colors.foreground-alt}
 ;
 [module/pulseaudio]
@@ -234,7 +230,7 @@ label-volume = %percentage%%
 
 ; Available tokens:
 ;   %percentage% (default)
-label-muted =  muted
+label-muted            =  muted
 label-muted-foreground = #666
 
 ; Only applies if <ramp-volume> is used
@@ -243,13 +239,7 @@ ramp-volume-1 = 
 
 [settings]
 screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
 
 [global/wm]
-;margin-top = 5
-;margin-bottom = 5
 
 ; vim:ft=dosini
