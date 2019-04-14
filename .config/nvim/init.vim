@@ -156,7 +156,7 @@ set wildmode    =list:longest
 
 " Set eol char  a nd stuff
 set list
-set listchars =eol:«,tab:>-,trail:·,extends:>,precedes:<
+set listchars =tab:▸\ ,trail:·,eol:¬,extends:»,precedes:«,nbsp:+
 
 " Set status
 set laststatus =2
