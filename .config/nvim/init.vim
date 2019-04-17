@@ -80,8 +80,16 @@ endif
 " Setting colorscheme
 colorscheme OceanicNext
 
+" Set mac specific clipboard settings
+if has("unix")
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    let g:clipboard = {'copy': {'+': 'pbcopy', '*': 'pbcopy'}, 'paste': {'+': 'pbpaste', '*': 'pbpaste'}, 'name': 'pbcopy', 'cache_enabled': 0}
+  endif
+endif
+
 " Set default clipboard register
-set clipboard =unnamed
+set clipboard +=unnamedplus
 
 " Settings for search stuff
 set hlsearch
