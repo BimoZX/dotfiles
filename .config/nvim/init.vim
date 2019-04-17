@@ -28,7 +28,6 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'danro/rename.vim'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'epeli/slimux'
-Plug 'jremmen/vim-ripgrep'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
