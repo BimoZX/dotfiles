@@ -11,9 +11,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " Utilities
-Plug 'Lokaltog/vim-easymotion'
-Plug 'Yggdroot/indentLine'
-Plug 'airblade/vim-gitgutter'
+Plug 'Alok/notational-fzf-vim'
 Plug 'akhaku/vim-java-unused-imports'
 Plug 'alvan/vim-closetag'
 Plug 'arthurxavierx/vim-caser'
@@ -35,8 +33,10 @@ Plug 'kana/vim-smartinput'
 Plug 'kana/vim-textobj-user'
 Plug 'kassio/neoterm'
 Plug 'lambdalisue/suda.vim'
+Plug 'Lokaltog/vim-easymotion'
 Plug 'luochen1990/rainbow'
 Plug 'markonm/traces.vim'
+Plug 'mhinz/vim-signify'
 Plug 'nelstrom/vim-textobj-rubyblock'
 Plug 'scrooloose/nerdcommenter'
 Plug 'sgur/vim-editorconfig'
@@ -53,6 +53,8 @@ Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'wesQ3/vim-windowswap'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Yggdroot/indentLine'
 
 " Programming Syntax
 Plug 'fatih/vim-go'
@@ -88,8 +90,11 @@ if has("unix")
   endif
 endif
 
+" Set alternative leader key
+let mapleader = "\<Space>"
+
 " Set default clipboard register
-set clipboard +=unnamedplus
+set clipboard +=unnamed
 
 " Settings for search stuff
 set hlsearch
@@ -216,6 +221,12 @@ let g:yankstack_map_keys =0
 " NERDTree settings
 let g:NERDTreeIgnore      =['^tags$']
 let g:NERDTreeNaturalSort =1
+let g:NERDTreeMinimalUI   =1
+let g:NERDTreeDirArrows   =1
+
+" Open NERDTree on entry
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Enable rainbow parentheses to be available
 let g:rainbow_active =1
@@ -246,6 +257,9 @@ call deoplete#custom#option({
 
 " Close deoplete doc preview window after completion but not inside command window
 autocmd InsertLeave,CompleteDone * if !bufexists("[Command Line]") && pumvisible() == 0 | pclose | endif
+
+" Golang deoplete config
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " Ultisnips config
 let g:UltiSnipsExpandTrigger       ="<c-k>"
@@ -318,6 +332,10 @@ let g:closetag_xhtml_filetypes ='xhtml,jsx'
 " Yoink configs
 let g:yoinkIncludeDeleteOperations =1
 
+" NV fzf config
+let g:nv_search_paths    =['~/Notes']
+let g:nv_create_note_key ='ctrl-n'
+
 " Some keybinding
 
 " traversing history without arrow key
@@ -365,3 +383,28 @@ xnoremap <leader>d d
 
 nnoremap <leader>dd dd
 nnoremap <leader>D D
+
+let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = float2nr(10)
+  let width = float2nr(80)
+  let horizontal = float2nr((&columns - width) / 2)
+  let vertical = 1
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': vertical,
+        \ 'col': horizontal,
+        \ 'width': width,
+        \ 'height': height,
+        \ 'style': 'minimal'
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
