@@ -122,6 +122,7 @@ export GOPATH="$HOME/go"
 # Additional custom bin path
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="/usr/local/kubebuilder/bin:$PATH"
 
 # FZF configs
 export FZF_DEFAULT_COMMAND='
