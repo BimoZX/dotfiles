@@ -7,8 +7,8 @@ super + Return
 	alacritty
 
 # program launcher/window switcher
-super + shift + {Return,@space}
-	rofi -show {run,window}
+super + shift + {slash,Return,@space}
+	rofi -show {run,drun,window}
 
 # make sxhkd reload its configuration files:
 super + Escape

@@ -1,9 +1,10 @@
 rofi.font:            Noto Sans Mono 20
-rofi.modi:            window,run
+rofi.modi:            window,drun,run
 rofi.location:        0
 rofi.lines:           5
 rofi.separator-style: none
 rofi.hide-scrollbar:  true
+rofi.show-icons:      true
 
 rofi.color-enabled: true
 rofi.color-window:  #242424, #242424, #242424
