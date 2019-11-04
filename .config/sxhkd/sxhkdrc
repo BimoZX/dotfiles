@@ -137,7 +137,7 @@ super + r
 #
 
 XF86Audio{Play,Prev,Next,Stop}
-	playerctl {play-pause,previous,next,stop}
+	playerctl --player=spotify {play-pause,previous,next,stop}
 XF86Audio{Raise,Lower}Volume
 	sh -c "pactl set-sink-mute 0 false ; pactl set-sink-volume 0 {+,-}5%"
 XF86AudioMute
