@@ -147,4 +147,4 @@ XF86AudioMute
 # applications
 #
 super + n
-	termite --class=Ranger --title=ranger --exec=ranger
+	alacritty --class=Ranger --title=ranger --command=ranger
