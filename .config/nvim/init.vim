@@ -390,8 +390,7 @@ xnoremap <leader>d d
 nnoremap <leader>dd dd
 nnoremap <leader>D D
 
-let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
-let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
+let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:10,fg+:#ffffff,bg+:0,hl+:10 --color=info:11,prompt:11,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 function! FloatingFZF()
