@@ -66,9 +66,12 @@ Plug 'tpope/vim-rails'
 
 " Pazzass and Themes
 Plug 'chriskempson/base16-vim'
-Plug 'mhartington/oceanic-next'
 Plug 'itchyny/lightline.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
 Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'psliwka/vim-smoothie'
+Plug 'shinchu/lightline-gruvbox.vim'
 
 call plug#end()
 
@@ -80,7 +83,9 @@ if (has("termguicolors"))
 endif
 
 " Setting colorscheme
-colorscheme OceanicNext
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 " Set mac specific clipboard settings
 if has("unix")
@@ -268,7 +273,7 @@ let g:UltiSnipsJumpBackwardTrigger ="<c-d>"
 
 " Airline config
 let g:lightline ={
-      \ 'colorscheme': 'nord',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive' ],
@@ -286,6 +291,7 @@ let g:lightline ={
       \ 'component_expand': {},
       \ 'component_type': {}
       \ }
+
 function! LightLineModified()
   if &filetype == "vim-plug" || &filetype == "help" || &readonly
     return ""
