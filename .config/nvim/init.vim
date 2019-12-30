@@ -28,6 +28,7 @@ Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'epeli/slimux'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/gv.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-smartinput'
 Plug 'kana/vim-textobj-user'
