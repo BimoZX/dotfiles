@@ -123,6 +123,7 @@ export GOPATH="$HOME/go"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/usr/local/kubebuilder/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # FZF configs
 export FZF_DEFAULT_COMMAND='
