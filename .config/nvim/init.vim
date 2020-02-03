@@ -26,6 +26,7 @@ Plug 'chrisbra/NrrwRgn'
 Plug 'danro/rename.vim'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'epeli/slimux'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/gv.vim'
@@ -53,6 +54,8 @@ Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-ragtag'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vimwiki/vimwiki'
 Plug 'wesQ3/vim-windowswap'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
@@ -64,6 +67,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'ryym/vim-riot'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-rails'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " Pazzass and Themes
 Plug 'chriskempson/base16-vim'
@@ -342,6 +346,25 @@ let g:yoinkIncludeDeleteOperations =1
 " NV fzf config
 let g:nv_search_paths    =['~/Notes']
 let g:nv_create_note_key ='ctrl-n'
+
+" vimwiki config
+let wiki = {}
+let wiki.path = '~/wiki/'
+let wiki.syntax = 'markdown'
+let wiki.ext = 'md'
+let wiki.nested_syntaxes = {
+      \ 'c++': 'cpp',
+      \ 'go': 'go'
+      \ }
+let g:vimwiki_list = [wiki]
+
+" Pandoc config
+let g:pandoc#syntax#codeblocks#embeds#langs = [
+      \ "go",
+      \ "ruby",
+      \ "literatehaskell=lhaskell",
+      \ "bash=sh"
+      \ ]
 
 " Some keybinding
 
