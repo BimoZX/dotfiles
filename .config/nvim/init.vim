@@ -235,11 +235,11 @@ let g:NERDTreeMinimalUI   =1
 let g:NERDTreeDirArrows   =1
 
 " Open NERDTree on entry
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+au StdinReadPre * let s:std_in=1
+au VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " Enable rainbow parentheses to be available
-let g:rainbow_active =1
+let g:rainbow_active =0
 
 " JSX extension settings
 let g:jsx_ext_required =0
@@ -266,7 +266,7 @@ call deoplete#custom#option({
       \ })
 
 " Close deoplete doc preview window after completion but not inside command window
-autocmd InsertLeave,CompleteDone * if !bufexists("[Command Line]") && pumvisible() == 0 | pclose | endif
+au InsertLeave,CompleteDone * if !bufexists("[Command Line]") && pumvisible() == 0 | pclose | endif
 
 " Golang deoplete config
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
