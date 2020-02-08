@@ -148,3 +148,5 @@ XF86AudioMute
 #
 super + n
 	alacritty --class=Ranger --title=ranger --command=ranger
+super + BackSpace
+	clipmenu
