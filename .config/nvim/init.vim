@@ -354,8 +354,13 @@ let wiki.path = '~/wiki/'
 let wiki.syntax = 'markdown'
 let wiki.ext = 'md'
 let wiki.nested_syntaxes = {
+      \ 'bash': 'bash',
       \ 'c++': 'cpp',
-      \ 'go': 'go'
+      \ 'css': 'css',
+      \ 'elixir': 'elixir',
+      \ 'erlang': 'erlang',
+      \ 'go': 'go',
+      \ 'ruby': 'ruby'
       \ }
 let g:vimwiki_list = [wiki]
 
