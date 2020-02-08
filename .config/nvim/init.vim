@@ -25,6 +25,7 @@ Plug 'chrisbra/Colorizer'
 Plug 'chrisbra/NrrwRgn'
 Plug 'danro/rename.vim'
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'dhruvasagar/vim-table-mode'
 Plug 'epeli/slimux'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
