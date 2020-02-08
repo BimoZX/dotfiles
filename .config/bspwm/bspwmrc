@@ -3,7 +3,7 @@
 pgrep sxhkd >/dev/null || sxhkd &
 pgrep polybar >/dev/null || polybar -r main &
 pgrep nm-applet >/dev/null || nm-applet --sm-disable &
-pgrep parcellite >/dev/null || parcellite &
+pgrep clipmenud >/dev/null || clipmenud &
 nitrogen --restore &
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
