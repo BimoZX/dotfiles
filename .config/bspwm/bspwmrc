@@ -3,7 +3,7 @@
 pgrep sxhkd >/dev/null || sxhkd &
 pgrep polybar >/dev/null || polybar -r main &
 pgrep nm-applet >/dev/null || nm-applet --sm-disable &
-pgrep clipmenud >/dev/null || clipmenud &
+pgrep clipmenud >/dev/null || CM_SELECTIONS=clipboard clipmenud &
 nitrogen --restore &
 
 if [ -d /etc/X11/xinit/xinitrc.d ]; then
