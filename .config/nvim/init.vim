@@ -105,7 +105,7 @@ endif
 let mapleader = "\<Space>"
 
 " Set default clipboard register
-set clipboard +=unnamed
+set clipboard=unnamedplus
 
 " Settings for search stuff
 set hlsearch
