@@ -360,7 +360,8 @@ let wiki.nested_syntaxes = {
       \ 'elixir': 'elixir',
       \ 'erlang': 'erlang',
       \ 'go': 'go',
-      \ 'ruby': 'ruby'
+      \ 'ruby': 'ruby',
+      \ 'rust': 'rust'
       \ }
 let g:vimwiki_list = [wiki]
 
