@@ -6,6 +6,10 @@
 super + Return
 	alacritty
 
+# dropdown terminal emulator
+super + ctrl + Return
+	tdrop -ma -w -4 -y "20" -s dropdown alacritty
+
 # program launcher/window switcher
 super + shift + {slash,Return,@space}
 	rofi -show {run,drun,window}
