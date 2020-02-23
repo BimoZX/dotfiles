@@ -73,6 +73,11 @@ zplug "asdf-vm/asdf", \
 zplug "tmux-plugins/tpm", \
   dir:~/.tmux/plugins/tpm
 
+# Tmux layout manager
+zplug "jimeh/tmuxifier", \
+  as:command, \
+  use:"bin/*"
+
 # Apply Zplug things
 zplug load
 
